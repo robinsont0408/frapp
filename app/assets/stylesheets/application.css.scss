@@ -13,3 +13,28 @@
  *= require_tree .
  *= require_self
  */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: white;
+  text-shadow: 2px 2px rgba(#322f2f, 0.6);
+}
+#mainNav {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    -webkit-transition: padding-top .3s,padding-bottom .3s;
+    -moz-transition: padding-top .3s,padding-bottom .3s;
+    transition: padding-top .3s,padding-bottom .3s;
+    border: none;
+    background-color: #000000ab;
+}
+#mainNav .navbar-brand {
+    font-size: 2.75em;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+    margin-left: -350px;
+}

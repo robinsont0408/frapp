@@ -1,85 +1,47 @@
-<% if @user.email.blank? || !resource.errors.empty? %>
-  <% flash.now[:alert] = 'Your card was NOT charged.' if !resource.errors.empty? %>
-  <div class="authform">
-    <%= form_for(@user, :url => {:controller=>'registrations', :action => 'pay'}, :html => { :role => 'form'}) do |f| %>
-      <h3>Sign Up &amp; Purchase</h3>
+<div class="fixednav">
+    <span></span>
+</div>
+<div class="panel panel-default">
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Sign up</h3>
+    </div>
+    <div class="panel-body">
+
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+
       <div class="form-group">
-        <%= f.label :name %>
-      <%= f.text_field :name, class: 'form-control' %>
-    </div>
-    <div class="form-group">
-      <%= f.label :name %>
-      <%= f.text_field :name, class: 'form-control' %>
-    </div>
-    <div class="form-group">
-      <%= f.label :name %>
-      <%= f.text_field :name, class: 'form-control' %>
-    </div>
-    <div class="form-group">
-      <%= f.label :name %>
-      <%= f.text_field :name, :autofocus => true, class: 'form-control' %>
-    </div>
-    <div class="form-group">
-      <%= f.label :email %>
-        <%= f.email_field :email, class: 'form-control' %>
+        <%= f.label :name %><br/>
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
       </div>
+
+      <div class="form-group">
+        <%= f.label :email %><br/>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+      </div>
+
       <div class="form-group">
         <%= f.label :password %>
-        <%= f.password_field :password, class: 'form-control' %>
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %>
+            characters minimum)</em>
+        <% end %><br/>
+        <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
       </div>
-      <div class="form-group">
-        <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+      <div class="actions">
+        <%= f.submit "Sign up", class: "btn btn-primary" %>
       </div>
-      <%= f.submit '1. Sign up', :class => 'button left' %>
-      <%= f.submit '2. Pay with Card', :class => 'button' , :disabled => 'disabled' %>
+
     <% end %>
+
   </div>
-<% else %>
-  <div class="authform">
-    <%= form_for(@user, :url => registration_path(@user), :html => { :role => 'form'}) do |f| %>
-      <h3>Pay with Card</h3>
-      <%= devise_error_messages! %>
-      <div class="form-group">
-        <%= f.label :name %>
-      <%= f.text_field :name, class: 'form-control' %>
-    </div>
-    <div class="form-group">
-      <%= f.label :name %>
-      <%= f.text_field :name, class: 'form-control' %>
-    </div>
-    <div class="form-group">
-      <%= f.label :name %>
-      <%= f.text_field :name, class: 'form-control' %>
-    </div>
-    <div class="form-group">
-      <%= f.label :name %>
-      <%= f.text_field :name, :autofocus => true, class: 'form-control' %>
-    </div>
-    <div class="form-group">
-      <%= f.label :email %>
-        <%= f.email_field :email, class: 'form-control', disabled: 'true' %>
-      </div>
-      <%= f.hidden_field :password %>
-      <%= f.hidden_field :password_confirmation %>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input class="form-control" disabled="disabled" placeholder="hidden" type="text" id="password" />
-      </div>
-      <div class="form-group">
-        <label for="password_confirmation">Password confirmation</label>
-        <input class="form-control" disabled="disabled" placeholder="hidden" type="text" id="password_confirmation" />
-      </div>
-      <%= f.submit '1. Sign up', :class => 'button left', :disabled => 'disabled' %>
-       <script src="https://checkout.stripe.com/v2/checkout.js"
-        class="stripe-button"
-        data-label="2. Pay with Card"
-        data-email="<%= @user.email %>"
-        data-key="<%= Rails.application.secrets.stripe_publishable_key %>"
-        data-description="<%= Rails.application.secrets.product_title %>"
-        data-amount="<%= Rails.application.secrets.product_price %>">
-       </script>
-    <% end %>
-  </div>
+  <div class="panel-footer"><%= render "devise/shared/links" %></div>
+</div>
 <% end %>

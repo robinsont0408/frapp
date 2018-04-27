@@ -1,17 +1,27 @@
 class RegistrationsController < Devise::RegistrationsController
 
-  def pay
-    @user = User.new
-    @user.email = params[:user][:email]
-    @user.password = params[:user][:password]
-    @user.password_confirmation = params[:user][:password_confirmation]
-    render :new
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
+  protected
+
+  def configure_permitted_parameters
+  devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+  devise_parameter_sanitizer.permit(:account_update, keys: [:name, :address, :city, :state, :zip, :avatar])
   end
 
-  def create
-    params[:user][:email] = params[:stripeEmail]
-    params[:user][:stripeToken] = params[:stripeToken]
-    super
+  rescue_from ActiveRecord::RecordNotFound do
+    flash[:warning] = 'Resource not found.'
+    redirect_back_or root_path
   end
 
-end
+  def redirect_back_or(path)
+    redirect_to request.referer || path
+  end
+
+
+
+
+    # Prevent CSRF attacks by raising an exception.
+    # For APIs, you may want to use :null_session instead.
+    protect_from_forgery with: :exception
+  end

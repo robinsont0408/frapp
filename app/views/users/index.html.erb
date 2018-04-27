@@ -14,3 +14,150 @@
     </div>
   </div>
 </div>
+<div class="jumbotron">
+  <div class="container">
+    <h1 class="lead">"Celebrating families all over the world... by connecting through history, heritage and lineage."</h1>
+  </div>
+</div>
+
+
+<h1> Frapp Forum </h1>
+<!-- Navigation -->
+<a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
+<nav id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+        <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
+        <li class="sidebar-brand">
+            <a href="#top"  onclick = $("#menu-close").click(); >Start Bootstrap</a>
+        </li>
+        <li>
+            <a href="#top" onclick = $("#menu-close").click(); >Home</a>
+        </li>
+        <li>
+            <a href="#about" onclick = $("#menu-close").click(); >About</a>
+        </li>
+        <li>
+            <a href="#services" onclick = $("#menu-close").click(); >Services</a>
+        </li>
+        <li>
+            <a href="#portfolio" onclick = $("#menu-close").click(); >Portfolio</a>
+        </li>
+        <li>
+            <a href="#contact" onclick = $("#menu-close").click(); >Contact</a>
+        </li>
+    </ul>
+</nav>
+
+<!-- Header -->
+<header id="top" class="header">
+    <div class="text-vertical-center">
+        <h1>Frapp</h1>
+        <h3>A Family Reunion App</h3>
+        <br>
+        <a href="#about" class="btn btn-dark btn-lg">Find Out More</a>
+    </div>
+</header>
+
+
+
+<!-- Map -->
+<section id="contact" class="map">
+    <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d110082.41325962704!2d-84.36057602102514!3d30.43396400284983!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x88ecf56ccebb1285%3A0x9e03781dcce8ec40!2sdomi+station!3m2!1d30.433982699999998!2d-84.2905358!5e0!3m2!1sen!2sus!4v1524732682280"></iframe>
+    <br />
+    <small>
+        <a href="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d110082.41325962704!2d-84.36057602102514!3d30.43396400284983!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x88ecf56ccebb1285%3A0x9e03781dcce8ec40!2sdomi+station!3m2!1d30.433982699999998!2d-84.2905358!5e0!3m2!1sen!2sus!4v1524732682280"></a>
+    </small>
+    </iframe>
+</section></br></br></br></br></br></br></br></br></br>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1 text-center">
+                <h4><strong>Frapp</strong>
+                </h4>
+                <p>914 Railroad Ave<br>Tallahassee, FL 32310</p>
+                <ul class="list-unstyled">
+                    <li><i class="fa fa-envelope-o fa-fw"></i>  <a href="mailto:name@example.com">name@example.com</a>
+                    </li>
+                </ul>
+                <br>
+                <ul class="list-inline">
+                    <li>
+                        <a href="#"><i class="fa fa-facebook fa-fw fa-3x"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-twitter fa-fw fa-3x"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-dribbble fa-fw fa-3x"></i></a>
+                    </li>
+                </ul>
+                <hr class="small">
+                <p class="text-muted">Copyright &copy; 2018</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Custom Theme JavaScript -->
+<script>
+// Closes the sidebar menu
+$("#menu-close").click(function(e) {
+    e.preventDefault();
+    $("#sidebar-wrapper").toggleClass("active");
+});
+
+// Opens the sidebar menu
+$("#menu-toggle").click(function(e) {
+    e.preventDefault();
+    $("#sidebar-wrapper").toggleClass("active");
+});
+
+// Scrolls to the selected menu item on the page
+$(function() {
+    $('a[href*=#]:not([href=#])').click(function() {
+        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+            if (target.length) {
+                $('html,body').animate({
+                    scrollTop: target.offset().top
+                }, 1000);
+                return false;
+            }
+        }
+    });
+});
+</script>
+
+
+
+
+
+
+
+
+  <p>"Celebrating families all over the world... by connecting through history, heritage and lineage."</p>
+
+
+  <%= @hello %>
+
+  <div class="form-group">
+    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+      <div class="btn-group" role="group">
+        <!--<button type="button" class="btn btn-primary">FrappFusion</button>-->
+        <%= link_to 'FrappFusion', fusion_path, class: "btn btn-primary"  %>
+      </div>
+      <div class="btn-group" role="group">
+        <!--<button type="button" class="btn btn-success">FrappChat</button>-->
+        <%= link_to 'FrappChat', chat_path, class: "btn btn-success"  %>
+      </div>
+      <div class="btn-group" role="group">
+        <!--<button type="button" class="btn btn-info">FrappBlog</button>-->
+        <%= link_to 'FrappBlogg', blog_path, class: "btn btn-info"  %>
+      </div>
+    </div>
+  </div>

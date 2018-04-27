@@ -1,2 +1,23 @@
 <%# add navigation links to this file %>
-<li><%= link_to 'About', page_path('about') %></li>
+<div class="collapse navbar-collapse" id="navbarResponsive">
+  <ul class="navbar-nav text-uppercase ml-auto">
+    <li class="nav-item">
+      <a class="nav-link js-scroll-trigger" href="/">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link js-scroll-trigger" href="/pages/about">About</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link js-scroll-trigger" href="/events/upcoming">Events</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link js-scroll-trigger" href="/maps/google_maps">Google Maps</a>
+    </li>
+  </ul>
+</div>
+<!-- <li><%= link_to 'About', page_path('about') %></li>
+<li><%= link_to "Past Frapp Events", events_past_path unless current_page?(events_past_path) %></li>
+<li><%= link_to "Future Frapp Events", events_upcoming_path  unless current_page?(events_upcoming_path) %></li>
+<li><%= link_to "Frapp Culture" %></li>
+<li><%= link_to "Frapp Pay" %></li>
+<li><%= link_to "Google Maps", maps_google_maps_path %></li> -->

@@ -1,0 +1,15 @@
+// Place all the styles related to the maps controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.fixednav {
+    width: 100%;
+    height: 90px;
+    background: #999;
+    line-height:90px; /*this is the key here*/
+}
+.fixednav > span {
+    position:fixed;
+    display:block;
+    width:100%;
+    line-height:90px;/*this is the key here*/
+}

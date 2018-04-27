@@ -43,4 +43,18 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  # Set your secret key: remember to change this to your live secret key in production
+# See your keys here: https://dashboard.stripe.com/account/apikeys
+Stripe.api_key = "pk_test_HxNr46DtMv8093T4rcs8T9yc"
+
+# Token is created using Checkout or Elements!
+# Get the payment token ID submitted by the form:
+token = params[:stripeToken]
+
+charge = Stripe::Charge.create({
+    amount: 999,
+    currency: 'usd',
+    description: 'Example charge',
+    source: token,
+})
 end
